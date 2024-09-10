@@ -18,6 +18,8 @@ public class CrudApplication {
 	public CommandLineRunner commandLineRunner(String[] args) {
 		return runner -> {
 			System.out.println("Hello World");
+			System.out.println("No logo");
+			System.out.println("Only worning");
 		};
 	}
 }
