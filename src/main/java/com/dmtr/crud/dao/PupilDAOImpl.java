@@ -48,4 +48,23 @@ public class PupilDAOImpl implements PupilDAO{
     public void update(Pupil pupil) {
         entityManager.merge(pupil);
     }
+
+    @Override
+    @Transactional
+    public void delete(int id) {
+        Pupil pupil = entityManager.find(Pupil.class, id);
+        if (pupil != null) {
+            entityManager.remove(pupil);
+            System.out.println("Delete success!");
+        }else {
+            System.out.println("No pupil with id=" +id+" in DB!");
+        }
+    }
+
+    @Override
+    @Transactional
+    public int deleteAllPupils() {
+        int quantityOfDeletedPupils = entityManager.createQuery("delete from Pupil").executeUpdate();
+        return quantityOfDeletedPupils;
+    }
 }

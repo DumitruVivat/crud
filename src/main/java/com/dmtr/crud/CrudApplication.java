@@ -25,8 +25,24 @@ public class CrudApplication {
 //			readPupilInfo(pupilDAO);
 //			getAllPupils(pupilDAO);
 //			getPupilByLastName(pupilDAO);
-			updatePupil(pupilDAO);
+//			updatePupil(pupilDAO);
+//			deletePupil(pupilDAO);
+			deleteAll(pupilDAO);
 		};
+	}
+
+	private void deleteAll(PupilDAO pupilDAO) {
+		System.out.println("Delete all pupils...");
+		int quantityDeletedPupils = pupilDAO.deleteAllPupils();
+		System.out.println("quantity deleted pupils " + quantityDeletedPupils);
+	}
+
+	private void deletePupil(PupilDAO pupilDAO) {
+		int idFromDeletePupil = 4;
+
+		System.out.println("Delete pupil with id= " + idFromDeletePupil);
+
+		pupilDAO.delete(idFromDeletePupil);
 	}
 
 	private void updatePupil(PupilDAO pupilDAO) {
@@ -63,7 +79,7 @@ public class CrudApplication {
 
 	private void readPupilInfo(PupilDAO pupilDAO) {
 		System.out.println("Read pupil info...");
-		Pupil pupil = pupilDAO.findById(1);
+		Pupil pupil = pupilDAO.findById(3);
 		System.out.println("Pupil info from DB: \n\t"+pupil);
 	}
 

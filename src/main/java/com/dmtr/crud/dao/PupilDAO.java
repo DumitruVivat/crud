@@ -10,4 +10,6 @@ public interface PupilDAO {
     List<Pupil> findAll();
     List<Pupil> findPupilByLastName(String lastName);
     void update(Pupil pupil);
+    void delete(int id);
+    int deleteAllPupils();
 }
