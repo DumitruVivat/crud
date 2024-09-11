@@ -3,9 +3,9 @@ package com.dmtr.crud.dao;
 import com.dmtr.crud.entity.Pupil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -41,5 +41,11 @@ public class PupilDAOImpl implements PupilDAO{
         query.setParameter("searchLastName", lastName);
         List<Pupil> pupils = query.getResultList();
         return pupils;
+    }
+
+    @Override
+    @Transactional
+    public void update(Pupil pupil) {
+        entityManager.merge(pupil);
     }
 }

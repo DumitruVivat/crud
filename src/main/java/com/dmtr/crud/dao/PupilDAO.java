@@ -9,4 +9,5 @@ public interface PupilDAO {
     Pupil findById(int id);
     List<Pupil> findAll();
     List<Pupil> findPupilByLastName(String lastName);
+    void update(Pupil pupil);
 }
